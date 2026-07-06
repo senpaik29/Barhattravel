@@ -1,0 +1,101 @@
+name: Deploy to production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  lint:
+    name: PHP syntax check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+          tools: none
+          coverage: none
+
+      - name: Lint theme + mu-plugin
+        run: |
+          set -e
+          echo "== Linting theme PHP files =="
+          find app/public/wp-content/themes/barhattravel -name '*.php' -print0 \
+            | xargs -0 -n 1 -P 4 php -l
+          echo
+          echo "== Linting mu-plugin PHP files =="
+          find app/public/wp-content/mu-plugins -name '*.php' -print0 \
+            | xargs -0 -n 1 -P 4 php -l
+          echo
+          echo "✅ All PHP files pass syntax check"
+
+  deploy:
+    name: Deploy to barhattravel.by
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Package theme + mu-plugin
+        run: |
+          cd app/public/wp-content
+          tar --exclude='./themes/barhattravel/.deploy-test' \
+              --exclude='**/.DS_Store' \
+              -czf /tmp/bt-deploy.tar.gz \
+                themes/barhattravel \
+                mu-plugins/barhattravel-core.php
+          ls -lh /tmp/bt-deploy.tar.gz
+
+      - name: Upload archive
+        run: |
+          scp -i ~/.ssh/deploy_key -P ${{ secrets.SSH_PORT }} \
+            /tmp/bt-deploy.tar.gz \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/tmp/bt-deploy.tar.gz
+
+      - name: Extract on server + wp-cli finalize
+        run: |
+          ssh -i ~/.ssh/deploy_key -p ${{ secrets.SSH_PORT }} \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+            "set -e; \
+             cd ${{ secrets.DEPLOY_PATH }}/wp-content; \
+             echo '=== Backup previous theme ==='; \
+             mkdir -p /tmp/bt-backup; \
+             tar -czf /tmp/bt-backup/theme-\$(date +%Y%m%d-%H%M%S).tar.gz themes/barhattravel mu-plugins/barhattravel-core.php 2>/dev/null || true; \
+             echo '=== Extract new theme ==='; \
+             tar -xzf /tmp/bt-deploy.tar.gz -C .; \
+             echo '=== Fix permissions ==='; \
+             find themes/barhattravel -type f -exec chmod 644 {} +; \
+             find themes/barhattravel -type d -exec chmod 755 {} +; \
+             chmod 644 mu-plugins/barhattravel-core.php; \
+             echo '=== Flush WP cache ==='; \
+             cd ${{ secrets.DEPLOY_PATH }} && \
+             (wp cache flush 2>/dev/null || echo 'wp-cli cache flush skipped'); \
+             (wp rewrite flush --hard 2>/dev/null || echo 'wp-cli rewrite flush skipped'); \
+             rm -f /tmp/bt-deploy.tar.gz; \
+             echo '✅ Deploy completed'; \
+             ls -la themes/barhattravel/assets/css/main.css"
+
+      - name: Verify site responds
+        run: |
+          echo "=== Checking https://barhattravel.by/ ==="
+          STATUS=$(curl -sk -o /dev/null -w "%{http_code}" --max-time 15 https://barhattravel.by/)
+          echo "Status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "❌ Site not responding correctly (expected 200, got $STATUS)"
+            exit 1
+          fi
+          echo "✅ Site responds OK"

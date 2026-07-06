@@ -1,0 +1,81 @@
+# ============================================================
+# BarhatTravel — .gitignore
+# Версионируем только кастомный код (тема + mu-plugin + docs).
+# WordPress core, uploads, конфиги, бэкапы — не трогаем.
+# ============================================================
+
+# === WordPress core (ставится на сервере отдельно, не наше) ===
+app/public/wp-admin/
+app/public/wp-includes/
+app/public/wp-*.php
+app/public/index.php
+app/public/xmlrpc.php
+app/public/license.txt
+app/public/readme.html
+app/public/local-xdebuginfo.php
+
+# === Секреты и локальные конфиги ===
+app/public/wp-config.php
+app/public/wp-config-sample.php
+app/public/.htaccess
+app/public/.user.ini
+local-site.json
+.env
+.env.local
+
+# === Медиа-библиотека (управляется через wp-admin) ===
+app/public/wp-content/uploads/
+app/public/wp-content/upgrade/
+app/public/wp-content/cache/
+app/public/wp-content/backup*/
+app/public/wp-content/backups/
+
+# === Стандартные темы WP (не используются) ===
+app/public/wp-content/themes/twentytwenty*/
+app/public/wp-content/themes/index.php
+
+# === Другие плагины (пока пусто, но на будущее) ===
+app/public/wp-content/plugins/
+!app/public/wp-content/plugins/index.php
+
+# === Служебное в wp-content ===
+app/public/wp-content/index.php
+app/public/wp-content/mu-plugins/index.php
+app/public/wp-content/mu-plugins/_bt-*.php
+app/public/wp-content/mu-plugins/local-by-flywheel*.php
+
+# === Локальные бэкапы и деплой-архивы ===
+backups/
+deploy/
+
+# === Логи и временные файлы ===
+logs/
+*.log
+*.log.gz
+*.pid
+*.seed
+*.tgz
+*.zip
+
+# === IDE / OS ===
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# === Runtime / dependencies (если появятся) ===
+node_modules/
+vendor/
+composer.lock
+
+# === Скриншоты для тестов ===
+tests/screenshots/
+*.png.tmp
+
+# === Ключи и приватные данные ===
+*.pem
+*.key
+!composer.lock  # если понадобится, включим позже
