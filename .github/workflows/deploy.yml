@@ -103,7 +103,7 @@ jobs:
           (wp rewrite flush --hard 2>/dev/null || echo 'wp-cli rewrite flush skipped')
           rm -f /tmp/bt-deploy.tar.gz
           echo '✅ Deploy completed'
-          ls -la themes/barhattravel/assets/css/main.css
+          ls -la wp-content/themes/barhattravel/assets/css/main.css
           EOF
 
       - name: Verify site responds
