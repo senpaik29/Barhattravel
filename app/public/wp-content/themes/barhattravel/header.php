@@ -55,7 +55,8 @@
 		</a>
 
 		<button class="bt-burger" aria-label="<?php esc_attr_e( 'Меню', 'barhattravel' ); ?>" aria-expanded="false" aria-controls="bt-nav">
-			<?php echo bt_icon( 'menu' ); ?>
+			<?php echo bt_icon( 'menu',  'bt-icon bt-burger__open' ); ?>
+			<?php echo bt_icon( 'close', 'bt-icon bt-burger__close' ); ?>
 		</button>
 
 		<nav id="bt-nav" class="bt-nav" aria-label="<?php esc_attr_e( 'Основное меню', 'barhattravel' ); ?>">

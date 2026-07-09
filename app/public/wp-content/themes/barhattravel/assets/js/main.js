@@ -5,14 +5,29 @@
 	var burger = document.querySelector('.bt-burger');
 	var nav = document.getElementById('bt-nav');
 	if (burger && nav) {
-		burger.addEventListener('click', function () {
-			var open = nav.classList.toggle('is-open');
+		var setState = function (open) {
+			nav.classList.toggle('is-open', open);
+			burger.classList.toggle('is-open', open);
 			burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+			document.body.classList.toggle('bt-menu-open', open);
+		};
+		burger.addEventListener('click', function () {
+			setState(!nav.classList.contains('is-open'));
 		});
 		nav.addEventListener('click', function (e) {
-			if (e.target.tagName === 'A') {
-				nav.classList.remove('is-open');
-				burger.setAttribute('aria-expanded', 'false');
+			if (e.target.closest('a')) {
+				setState(false);
+			}
+		});
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+				setState(false);
+			}
+		});
+		// Close if viewport grows past mobile breakpoint while open.
+		window.addEventListener('resize', function () {
+			if (window.innerWidth > 1024 && nav.classList.contains('is-open')) {
+				setState(false);
 			}
 		});
 	}

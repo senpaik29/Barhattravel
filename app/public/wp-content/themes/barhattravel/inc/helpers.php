@@ -85,6 +85,7 @@ function bt_icon( $name, $class = 'bt-icon' ) {
 		'tt'       => '<path d="M16 3a4 4 0 004 4v3a7 7 0 01-4-1v6a5 5 0 11-5-5v3a2 2 0 102 2V3z"/>',
 		'wa'       => '<path d="M3 21l1.5-5A8 8 0 1112 20a8 8 0 01-4-1L3 21z"/>',
 		'menu'     => '<path d="M4 6h16M4 12h16M4 18h16"/>',
+		'close'    => '<path d="M6 6l12 12M18 6L6 18"/>',
 	];
 	$d = $icons[ $name ] ?? '';
 	return sprintf(
