@@ -269,7 +269,7 @@ function bt_find_tour_link( $destination_name ) {
 	// Strip decorative parts like "«...»" quotes and " – ... " suffixes for better matching
 	$needle_clean = trim( preg_replace( '/[«»"]/u', '', $needle ) );
 	foreach ( $cache as $t ) {
-		$title = mb_strtolower( $t['title'] );
+		$title = trim( preg_replace( '/[«»"]/u', '', mb_strtolower( $t['title'] ) ) );
 		// Exact substring match
 		if ( mb_strpos( $title, $needle_clean ) !== false ) {
 			return $t['url'];
