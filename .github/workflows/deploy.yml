@@ -70,11 +70,16 @@ jobs:
       - name: Package theme + mu-plugin
         run: |
           cd app/public/wp-content
+          # Include any _bt-*.php one-shot seeders that were force-added to git.
+          # They live in mu-plugins/ and self-guard with an option flag, so they
+          # run once on the server and must be removed in a follow-up commit.
+          SEEDERS=$(ls mu-plugins/_bt-*.php 2>/dev/null || true)
           tar --exclude='./themes/barhattravel/.deploy-test' \
               --exclude='**/.DS_Store' \
               -czf /tmp/bt-deploy.tar.gz \
                 themes/barhattravel \
-                mu-plugins/barhattravel-core.php
+                mu-plugins/barhattravel-core.php \
+                $SEEDERS
           ls -lh /tmp/bt-deploy.tar.gz
 
       - name: Upload archive

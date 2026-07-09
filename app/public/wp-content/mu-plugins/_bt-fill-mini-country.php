@@ -60,4 +60,9 @@ add_action( 'init', function () {
 	update_post_meta( $id, '_bt_hero_image', 'dest-mini-country.jpg' );
 
 	update_option( '_bt_seed_mini_country_done', 1 );
+
+	// Self-destruct: remove this seeder file from the server so it never runs
+	// again and never lingers as a public endpoint. Follow-up commit removes it
+	// from git separately.
+	@unlink( __FILE__ );
 } );
