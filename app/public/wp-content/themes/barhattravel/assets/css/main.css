@@ -133,10 +133,13 @@ button { font: inherit; cursor: pointer; }
 .bt-header__cta .bt-btn--ghost { background: #0026FF; color: #fff; border-color: #0026FF; }
 .bt-header__cta .bt-btn--ghost:hover { background: #1a3fff; color: #fff; border-color: #1a3fff; }
 
-.bt-burger { display: none; background: #0026FF; border: 2px solid #0026FF; padding: 12px 22px; color: #fff; position: relative; z-index: 110; cursor: pointer; line-height: 1; border-radius: var(--bt-radius-pill); transition: background .15s ease, border-color .15s ease; }
+.bt-burger { display: none; background: #0026FF; border: 2px solid #0026FF; padding: 8px 10px; color: #fff; position: relative; z-index: 110; cursor: pointer; line-height: 1; border-radius: var(--bt-radius-pill); transition: background .15s ease, border-color .15s ease; }
 .bt-burger:hover { background: #1a3fff; border-color: #1a3fff; }
-.bt-burger .bt-icon { width: 18px; height: 18px; }
-.bt-burger .bt-burger__close { display: none; }
+.bt-burger__open { display: block; width: 40px; height: 24px; }
+.bt-burger__open line { stroke: #fff; stroke-width: 3.5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.bt-burger .bt-burger__close { display: none; width: 28px; height: 28px; stroke-width: 3; }
+
+.bt-nav__logo { display: none; }
 
 @media (max-width: 1024px) {
 	.bt-header__cta .bt-btn span { display: none; }
@@ -192,6 +195,14 @@ button { font: inherit; cursor: pointer; }
 	}
 	.bt-burger.is-open .bt-burger__open  { display: none; }
 	.bt-burger.is-open .bt-burger__close { display: block; }
+	.bt-nav.is-open .bt-nav__logo {
+		display: block;
+		position: absolute;
+		top: 12px;
+		left: 20px;
+		z-index: 105;
+	}
+	.bt-nav.is-open .bt-nav__logo img { max-height: 64px; width: auto; display: block; }
 	body.bt-menu-open { overflow: hidden; }
 }
 @keyframes btNavFade {

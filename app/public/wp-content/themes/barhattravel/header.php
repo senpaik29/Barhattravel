@@ -55,11 +55,25 @@
 		</a>
 
 		<button class="bt-burger" aria-label="<?php esc_attr_e( 'Меню', 'barhattravel' ); ?>" aria-expanded="false" aria-controls="bt-nav">
-			<?php echo bt_icon( 'menu',  'bt-icon bt-burger__open' ); ?>
+			<svg class="bt-burger__open" viewBox="0 0 20 12" preserveAspectRatio="none" fill="none" stroke="currentColor" aria-hidden="true">
+				<line x1="1" y1="1.5" x2="19" y2="1.5"/>
+				<line x1="1" y1="6"   x2="19" y2="6"/>
+				<line x1="1" y1="10.5" x2="19" y2="10.5"/>
+			</svg>
 			<?php echo bt_icon( 'close', 'bt-icon bt-burger__close' ); ?>
 		</button>
 
 		<nav id="bt-nav" class="bt-nav" aria-label="<?php esc_attr_e( 'Основное меню', 'barhattravel' ); ?>">
+			<a class="bt-nav__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php bloginfo( 'name' ); ?>">
+				<?php
+				if ( has_custom_logo() ) {
+					the_custom_logo();
+				} else {
+					$logo = BT_THEME_URI . '/assets/img/logo.png';
+					printf( '<img src="%s" alt="%s" width="220" height="93" loading="eager">', esc_url( $logo ), esc_attr( get_bloginfo( 'name' ) ) );
+				}
+				?>
+			</a>
 			<?php
 			if ( has_nav_menu( 'primary' ) ) {
 				wp_nav_menu( [
