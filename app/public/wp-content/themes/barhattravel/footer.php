@@ -13,7 +13,7 @@
 				}
 				?>
 			</a>
-			<p class="bt-footer__tagline"><?php esc_html_e( 'Ваше лучшее путешествие начинается здесь', 'barhattravel' ); ?></p>
+			<p class="bt-footer__tagline"><?php esc_html_e( 'Ваше лучшее путешествие начинается здесь!', 'barhattravel' ); ?></p>
 			<div class="bt-footer__social">
 				<a href="<?php echo esc_url( bt_social()['telegram'] ); ?>" aria-label="Telegram" target="_blank" rel="noopener"><?php echo bt_icon( 'tg' ); ?></a>
 				<a href="<?php echo esc_url( bt_social()['whatsapp'] ); ?>" aria-label="WhatsApp" target="_blank" rel="noopener"><?php echo bt_icon( 'wa' ); ?></a>

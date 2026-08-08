@@ -12,8 +12,8 @@ get_header();
 	<div class="bt-container bt-hero__inner">
 		<div class="bt-hero__main">
 			<div class="bt-hero__copy">
-				<h1 class="bt-hero__title">ООО «БархатТрэвел»<br><em>Ваше лучшее путешествие начинается здесь</em></h1>
-				<p class="bt-hero__sub">Автобусные туры, экскурсии, пляжный отдых, школьные поездки и аренда комфортабельного транспорта. Для Вас с 2020 года!</p>
+				<h1 class="bt-hero__title">ООО «БархатТрэвел»<br><em>Ваше лучшее путешествие начинается здесь!</em></h1>
+				<p class="bt-hero__sub">Автобусные туры, экскурсии, пляжный отдых, школьные поездки и аренда комфортабельного транспорта для Вас с 2020 года!</p>
 			</div>
 			<div class="bt-hero__actions bt-hero__actions--stack">
 				<a href="<?php echo esc_url( get_post_type_archive_link( 'bt_tour' ) ); ?>" class="bt-btn bt-btn--primary bt-btn--lg"><?php echo bt_icon( 'compass', 'bt-icon bt-icon--sm' ); ?> Выбрать тур</a>
