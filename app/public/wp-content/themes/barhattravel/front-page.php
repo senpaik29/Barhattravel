@@ -75,17 +75,22 @@ get_header();
 			<div class="bt-advantage">
 				<div class="bt-advantage__ico"><?php echo bt_icon( 'compass' ); ?></div>
 				<h3>Разнообразие маршрутов</h3>
-				<p>100+ маршрутов — от ночного Полоцка до пляжей Шри-Ланки и замков Литвы.</p>
+				<p>100+ маршрутов — от ночного Полоцка до пляжей Шри-Ланки и замков Европы.</p>
 			</div>
 			<div class="bt-advantage">
 				<div class="bt-advantage__ico"><?php echo bt_icon( 'tag' ); ?></div>
 				<h3>Конкурентные цены</h3>
-				<p>Гибкая система скидок для постоянных клиентов, групп и школьников.</p>
+				<p>Гибкая система скидок для постоянных клиентов, организованных групп и школьников.</p>
 			</div>
 			<div class="bt-advantage">
 				<div class="bt-advantage__ico"><?php echo bt_icon( 'heart' ); ?></div>
 				<h3>Индивидуальный подход</h3>
-				<p>Подбираем тур под ваши пожелания: бюджет, состав группы, особенности маршрута.</p>
+				<p>Подбираем качественный и эксклюзивный турпродукт.</p>
+			</div>
+			<div class="bt-advantage">
+				<div class="bt-advantage__ico"><?php echo bt_icon( 'users' ); ?></div>
+				<h3>Профессионализм сотрудников</h3>
+				<p>Высококвалифицированный персонал с профильным образованием и галантными манерами.</p>
 			</div>
 			<div class="bt-advantage">
 				<div class="bt-advantage__ico"><?php echo bt_icon( 'star' ); ?></div>
