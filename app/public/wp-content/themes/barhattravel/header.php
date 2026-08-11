@@ -94,7 +94,8 @@
 				<span><?php esc_html_e( 'Заказать звонок', 'barhattravel' ); ?></span>
 			</a>
 			<a class="bt-btn bt-btn--primary bt-js-open" data-form="application" href="#application">
-				<?php esc_html_e( 'Оставить заявку', 'barhattravel' ); ?>
+				<?php echo bt_icon( 'mail', 'bt-icon bt-icon--sm' ); ?>
+				<span><?php esc_html_e( 'Оставить заявку', 'barhattravel' ); ?></span>
 			</a>
 		</div>
 	</div>
