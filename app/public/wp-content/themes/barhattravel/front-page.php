@@ -118,12 +118,6 @@ get_header();
 				<p>Встречаем у автобуса, сопровождаем по маршруту, на связи 24/7.</p>
 			</div>
 		</div>
-
-		<div class="bt-trust">
-			<div class="bt-trust__badge"><?php echo bt_icon( 'check' ); ?> <span>Член <strong>РАТА</strong> — Республиканский Альянс Туриндустрии</span></div>
-			<div class="bt-trust__badge"><?php echo bt_icon( 'star' ); ?> <span><strong>«Открытие года 2025»</strong> — победитель конкурса субъектов тур.деятельности</span></div>
-			<div class="bt-trust__badge"><?php echo bt_icon( 'shield' ); ?> <span>Плановая <strong>сертификация — лето 2026</strong></span></div>
-		</div>
 	</div>
 </section>
 

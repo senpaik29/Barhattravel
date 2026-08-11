@@ -62,12 +62,6 @@ while ( have_posts() ) : the_post();
 			<div class="bt-step"><h4>Договор и оплата</h4><p>Заключаем договор, выбираем удобный способ оплаты.</p></div>
 			<div class="bt-step"><h4>Поездка</h4><p>Встречаем у автобуса, сопровождаем по маршруту, на связи 24/7.</p></div>
 		</div>
-
-		<div class="bt-trust">
-			<div class="bt-trust__badge"><?php echo bt_icon( 'check' ); ?> <span>Член <strong>РАТА</strong></span></div>
-			<div class="bt-trust__badge"><?php echo bt_icon( 'star' ); ?> <span><strong>«Открытие года 2025»</strong></span></div>
-			<div class="bt-trust__badge"><?php echo bt_icon( 'shield' ); ?> <span>Сертификация — <strong>лето 2026</strong></span></div>
-		</div>
 	</div>
 </section>
 
