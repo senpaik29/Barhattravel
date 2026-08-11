@@ -132,8 +132,7 @@ get_header();
 				<div class="bt-transport-rental__list">
 					<div><strong>Микроавтобусы туристического класса</strong>Mercedes Sprinter, Ford Transit, от 17 до 20 мест, микрофон, багажный отсек</div>
 					<div><strong>Туристические автобусы</strong>Higer 6128, Neoplan 116 (48-55 мест, ТВ, кондиционеры)</div>
-					<div><strong>Минивэны</strong>Семейные и групповые поездки до 8 человек</div>
-					<div><strong>Техосмотры</strong>Регулярные, опытные водители категории D</div>
+					<div><strong>Гарантия качества и безопасность на каждом километре</strong>Регулярные тех осмотры, опытные водители, галантные манеры</div>
 				</div>
 				<p class="bt-mt-3">
 					<a class="bt-btn bt-btn--primary bt-js-open" data-form="application" data-subject="Аренда транспорта"><?php echo bt_icon( 'bus', 'bt-icon bt-icon--sm' ); ?> Заказать транспорт</a>
