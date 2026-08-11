@@ -7,8 +7,14 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<meta name="theme-color" content="#0E2A5E">
+	<meta name="theme-color" content="#1B3473">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<?php $bt_img = BT_THEME_URI . '/assets/img'; ?>
+	<link rel="icon" href="<?php echo esc_url( $bt_img . '/favicon.ico' ); ?>" sizes="any">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url( $bt_img . '/favicon-32.png' ); ?>">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url( $bt_img . '/favicon-16.png' ); ?>">
+	<link rel="icon" type="image/png" sizes="192x192" href="<?php echo esc_url( $bt_img . '/favicon-192.png' ); ?>">
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( $bt_img . '/apple-touch-icon.png' ); ?>">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
