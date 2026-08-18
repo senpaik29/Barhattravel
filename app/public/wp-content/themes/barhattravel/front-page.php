@@ -189,11 +189,11 @@ foreach ( bt_tour_categories() as $slug => $cat ) :
 				<h2 class="bt-h2"><?php echo esc_html( $cat['title'] ); ?></h2>
 				<p><?php echo esc_html( $cat['short'] ); ?></p>
 				<ul class="bt-services bt-services--single bt-mt-2">
-					<?php foreach ( array_slice( $cat['destinations'], 0, 4 ) as $d ) : ?>
+					<?php foreach ( array_slice( $cat['destinations'], 0, 5 ) as $d ) : ?>
 						<li><strong><?php echo esc_html( $d['name'] ); ?></strong><?php if ( ! empty( $d['sub'] ) ) echo ' — ' . esc_html( $d['sub'] ); ?></li>
 					<?php endforeach; ?>
-					<?php if ( count( $cat['destinations'] ) > 4 ) : ?>
-						<li><em>… и ещё <?php echo count( $cat['destinations'] ) - 4; ?> направлен<?php echo ( count( $cat['destinations'] ) - 4 ) === 1 ? 'ие' : 'ий'; ?></em></li>
+					<?php if ( count( $cat['destinations'] ) > 5 ) : ?>
+						<li><em>… и ещё <?php echo count( $cat['destinations'] ) - 5; ?> направлен<?php echo ( count( $cat['destinations'] ) - 5 ) === 1 ? 'ие' : 'ий'; ?></em></li>
 					<?php endif; ?>
 				</ul>
 				<p class="bt-mt-3">

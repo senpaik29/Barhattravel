@@ -12,7 +12,7 @@ function bt_primary_menu_fallback() {
 		[ 'url' => home_url( '/' ),                'label' => 'Главная' ],
 		[ 'url' => home_url( '/about/' ),          'label' => 'О нас' ],
 		[ 'url' => home_url( '/advantages/' ),     'label' => 'Преимущества' ],
-		[ 'url' => home_url( '/tours-catalog/' ),  'label' => 'Автобусные туры по Беларуси' ],
+		[ 'url' => home_url( '/tours-catalog/' ),  'label' => 'Автобусные и ж/д туры по Беларуси' ],
 		[ 'url' => home_url( '/excursions/' ),     'label' => 'Экскурсии' ],
 		[ 'url' => home_url( '/abroad/' ),         'label' => 'Туры в РФ и зарубежье' ],
 		[ 'url' => home_url( '/beach/' ),          'label' => 'Пляжный отдых' ],

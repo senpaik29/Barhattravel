@@ -802,9 +802,16 @@ button { font: inherit; cursor: pointer; }
 .bt-crumbs span { margin: 0 6px; opacity: .5; }
 
 /* tour programs (route descriptions on category page) */
+html { scroll-behavior: smooth; }
 .bt-programs { display: grid; gap: clamp(16px, 2.4vw, 24px); max-width: 900px; margin: 0 auto; }
-.bt-program { background: #fff; border: 1px solid var(--bt-line); border-left: 4px solid var(--bt-yellow); border-radius: var(--bt-radius); padding: clamp(20px, 3vw, 32px); box-shadow: var(--bt-shadow); position: relative; overflow: hidden; }
+.bt-program { background: #fff; border: 1px solid var(--bt-line); border-left: 4px solid var(--bt-yellow); border-radius: var(--bt-radius); padding: clamp(20px, 3vw, 32px); box-shadow: var(--bt-shadow); position: relative; overflow: hidden; scroll-margin-top: 100px; transition: box-shadow .3s ease, border-color .3s ease, transform .3s ease; }
 .bt-program::before { content: ""; position: absolute; top: -50px; right: -50px; width: 160px; height: 160px; border-radius: 50%; background: linear-gradient(135deg, var(--bt-yellow-soft), transparent); opacity: .5; pointer-events: none; }
+.bt-program:target { border-left-color: var(--bt-blue); box-shadow: var(--bt-shadow-lg); animation: bt-program-hi 1.6s ease-out; }
+@keyframes bt-program-hi {
+	0%   { box-shadow: 0 0 0 0 rgba(53,37,205,.35), var(--bt-shadow-lg); }
+	60%  { box-shadow: 0 0 0 14px rgba(53,37,205,0),  var(--bt-shadow-lg); }
+	100% { box-shadow: var(--bt-shadow-lg); }
+}
 .bt-program__head { margin-bottom: 14px; position: relative; }
 .bt-program__route { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--bt-yellow); font-weight: 700; margin-bottom: 6px; }
 .bt-program__title { margin: 0; font-family: "Times New Roman", Times, serif; font-style: italic; font-weight: 600; font-size: clamp(22px, 2.6vw, 28px); color: var(--bt-navy); line-height: 1.25; }
