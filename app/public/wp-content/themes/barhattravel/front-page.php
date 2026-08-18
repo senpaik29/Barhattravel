@@ -140,10 +140,11 @@ get_header();
 			</div>
 			<div class="bt-transport-rental__media">
 				<?php
-				$bus_img = BT_THEME_URI . '/assets/img/bus.jpg';
+				$rental_img_file = 'passport-polotsk.jpeg';
+				$rental_img = BT_THEME_URI . '/assets/img/' . $rental_img_file;
 				// fall back to icon if image is absent
-				if ( file_exists( BT_THEME_DIR . '/assets/img/bus.jpg' ) ) {
-					echo '<img src="' . esc_url( $bus_img ) . '" alt="Автопарк БархатТрэвел" loading="lazy">';
+				if ( file_exists( BT_THEME_DIR . '/assets/img/' . $rental_img_file ) ) {
+					echo '<img src="' . esc_url( $rental_img ) . '" alt="Путешествия по Беларуси с БархатТрэвел" loading="lazy">';
 				} else {
 					echo bt_icon( 'bus', 'bt-icon' );
 				}
