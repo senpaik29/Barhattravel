@@ -3,19 +3,34 @@
  * Template Name: Экскурсии
  */
 get_header();
-while ( have_posts() ) : the_post();
-	bt_page_hero( [
-		'title'    => '<em>Экскурсии</em> по Беларуси',
-		'subtitle' => 'От ночного Полоцка до парк-музея «Сула», карьерных самосвалов БелАЗ и средневековых замков.',
-		'crumbs'   => [ [ 'label' => 'Экскурсии' ] ],
-	] );
-?>
+$bt_tour_slug = get_query_var( 'bt_tour_slug' );
 
-<section class="bt-section bt-worldmap" style="padding-top: clamp(20px, 4vw, 40px)">
-	<div class="bt-container">
-		<?php bt_render_category_block( 'excursions' ); ?>
-	</div>
-</section>
+while ( have_posts() ) : the_post();
+
+	if ( $bt_tour_slug ) {
+		if ( ! bt_render_tour_page( 'excursions', $bt_tour_slug ) ) {
+			status_header( 404 );
+			bt_page_hero( [
+				'title'    => 'Экскурсия не найдена',
+				'subtitle' => 'Возможно, ссылка устарела. Вернитесь в каталог экскурсий.',
+				'crumbs'   => [ [ 'label' => 'Экскурсии', 'url' => home_url( '/excursions/' ) ], [ 'label' => '404' ] ],
+			] );
+		}
+	} else {
+		bt_page_hero( [
+			'title'    => '<em>Экскурсии</em> по Беларуси',
+			'subtitle' => 'Очень хочется путешествовать, но у Вас всего 1 день? Не беда! Наш экскурсионный каталог приятно удивит даже самого взыскательного путешественника.',
+			'crumbs'   => [ [ 'label' => 'Экскурсии' ] ],
+		] );
+		?>
+		<section class="bt-section bt-worldmap" style="padding-top: clamp(20px, 4vw, 40px)">
+			<div class="bt-container">
+				<?php bt_render_category_block( 'excursions' ); ?>
+			</div>
+		</section>
+		<?php
+	}
+?>
 
 <section class="bt-section bt-section--dark">
 	<div class="bt-container bt-center">
