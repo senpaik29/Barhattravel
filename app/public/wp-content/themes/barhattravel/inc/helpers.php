@@ -170,7 +170,7 @@ function bt_tour_categories() {
 				[ 'name' => 'Гродно – Лида',                    'icon' => 'castle',  'sub' => 'По следам гродненских рыцарей и королей',   'image' => 'dest-grodno.jpg',          'program' => 'grodno-lida' ],
 				[ 'name' => 'Брест – Коссово',                  'icon' => 'castle',  'sub' => 'Великий и непокоренный Брест',              'image' => 'dest-brest.jpg',           'program' => 'brest-kossovo' ],
 				[ 'name' => 'Жиличи – Красный берег – Гомель',  'icon' => 'map',     'sub' => 'Наследие гомельской земли',                 'image' => 'dest-bobruysk-gomel.jpg',  'program' => 'zhilichi-gomel' ],
-				[ 'name' => 'Пинск – Барановичи',               'icon' => 'compass', 'sub' => 'По следам иезуитов и сказочных животных',                                          'program' => 'pinsk-baranovichi' ],
+				[ 'name' => 'Пинск – Барановичи',               'icon' => 'compass', 'sub' => 'По следам иезуитов и сказочных животных',   'image' => 'dest-pinsk-baranovichi.jpg', 'program' => 'pinsk-baranovichi' ],
 				[ 'name' => 'Крево – Новогрудок – Туров',       'icon' => 'castle',  'sub' => 'Навагрудскія таямніцы і Марсіянскія пейзажы', 'image' => 'dest-novogrudok.jpg',     'program' => 'krevo-turov' ],
 			],
 			'programs' => [
